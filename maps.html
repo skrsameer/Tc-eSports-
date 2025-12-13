@@ -1,0 +1,136 @@
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>TALE ENDERS - Maps</title>  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">  
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="style.css">  
+</head>  
+<body>  
+    <!-- Top Bar -->  
+    <div class="top-bar">  
+        <i class="fas fa-arrow-left top-icon" id="back-icon" onclick="history.back()"></i>  
+        <div class="brand small">Maps</div>  
+        <div style="width: 2.4rem"></div>  
+    </div>  <!-- Main Content -->  
+<main class="container">  
+    <h2 class="section-heading">Available Maps</h2>  
+      
+    <section class="maps-list">  
+        <div class="map-card" onclick="openFullScreenMap('Bermuda', 'Bermuda.png')">  
+            <div class="map-thumb"><img src="Bermuda.png" alt="Bermuda"></div>  
+            <div class="map-title">BERMUDA</div>  
+        </div>  
+          
+        <div class="map-card" onclick="openFullScreenMap('Alpine', 'alpine.png')">  
+            <div class="map-thumb"><img src="Alpine.jpg" alt="Alpine"></div>  
+            <div class="map-title">ALPINE</div>  
+        </div>  
+          
+        <div class="map-card" onclick="openFullScreenMap('Kalahari', 'kalahari.png')">  
+            <div class="map-thumb"><img src="kalahari.png" alt="Kalahari"></div>  
+            <div class="map-title">KALAHARI</div>  
+        </div>  
+          
+        <div class="map-card" onclick="openFullScreenMap('Purgatory', 'purgatory.jpg')">  
+            <div class="map-thumb"><img src="purgatory.png" alt="Purgatory"></div>  
+            <div class="map-title">PURGATORY</div>  
+        </div>  
+          
+        <div class="map-card" onclick="openFullScreenMap('NextErra', 'nexterra.png')">  
+            <div class="map-thumb"><img src="nexterra.png" alt="NextErra"></div>  
+            <div class="map-title">NEXTERRA</div>  
+        </div>  
+          
+        <div class="map-card" onclick="openFullScreenMap('Solara', 'solara.jpg')">  
+            <div class="map-thumb"><img src="solara.jpg" alt="Solara"></div>  
+            <div class="map-title">SOLARA</div>  
+        </div>  
+          
+        <!-- My Drops Button -->  
+        <div class="map-card drops-btn" onclick="window.location.href='page9.html'">  
+            <div class="map-thumb" style="background: linear-gradient(135deg, #2ecc71, #27ae60); display: flex; align-items: center; justify-content: center;">  
+                <i class="fas fa-map-marker-alt" style="font-size: 1.8rem; color: white;"></i>  
+            </div>  
+            <div class="map-title" style="color: #2ecc71;">MY DROPS POINTS</div>  
+        </div>  
+    </section>  
+</main>  
+
+<!-- Map Viewer Modal (Fullscreen) -->  
+<div id="mapViewerModal" class="modal map-modal">  
+    <div class="map-modal-inner">  
+        <div class="map-header">  
+            <button class="neumorphic-button" id="mapClose">  
+<i class="fas fa-times"></i>
+
+</button>  
+                <div class="map-name" id="mapName">Map</div>  
+                <div style="width:2.4rem"></div>  
+            </div>  
+                  <!-- Size Controller -->  
+            <div class="size-controller">  
+                <label>Size: <span id="sizeValue">8</span></label>  
+                <input type="range" id="toolSize" min="1" max="20" value="8" style="width: 120px;">  
+            </div>  <div class="map-canvas-wrapper">  
+            <canvas id="mapCanvas"></canvas>  
+              
+            <!-- Toolbox -->  
+            <div id="mapToolbox" class="map-toolbox">  
+                <button id="tool-pan" class="neumorphic-tool-btn active-tool" title="Pan"><i class="fas fa-hand-paper"></i></button>  
+                <button id="tool-route" class="neumorphic-tool-btn" title="Draw route"><i class="fas fa-route"></i></button>  
+                <button id="tool-line" class="neumorphic-tool-btn" title="Draw line"><i class="fas fa-pen"></i></button>  
+                <button id="tool-circle" class="neumorphic-tool-btn" title="Draw circle/zone"><i class="far fa-circle"></i></button>  
+                <button id="tool-dot" class="neumorphic-tool-btn" title="Place marker"><i class="fas fa-map-marker-alt"></i></button>  
+                <button id="tool-eraser" class="neumorphic-tool-btn" title="Eraser"><i class="fas fa-eraser"></i></button>  
+                <button id="tool-clear" class="neumorphic-tool-btn danger-btn" title="Clear all"><i class="fas fa-trash-alt"></i></button>  
+                <input id="tool-color" type="color" value="#ff0000" title="Select color" />  
+            </div>  
+              
+            <!-- In the HTML, make sure zoom range is properly set -->
+<div class="zoom-ui">  
+    <span class="z-num">100</span>  
+    <input 
+        type="range" 
+        id="zoomRange" 
+        min="0" 
+        max="100" 
+        value="5" 
+    />  
+    <span class="z-num">200</span>
+</div>  
+            </div>  
+        </div>  
+    </div>  <!-- Bottom Navigation -->  
+<nav class="bottom-nav">  
+<a href="index.html" class="nav-item">  
+    <i class="fas fa-home"></i>  
+    <span>Home</span>  
+</a>  
+  
+<a href="maps.html" class="nav-item active">  
+    <i class="fas fa-map"></i>  
+    <span>Maps</span>  
+</a>  
+  
+<a href="team.html" class="nav-item">  
+    <i class="fas fa-users"></i>  
+    <span>Team</span>  
+</a>  
+  
+<a href="videos.html" class="nav-item">  
+    <i class="fas fa-video"></i>  
+    <span>Video</span>  
+</a>
+
+</nav>  <!-- Footer -->  
+<footer>  
+    <p>© 2025 ( Tale Enders eSports )</p>  
+    <p><small><em>Sameer is the owner and creator of this website.</em></small></p>  
+</footer>  
+
+<script src="script.js"></script>
+
+</body>  
+</html>

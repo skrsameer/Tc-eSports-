@@ -1,2 +1,2 @@
 # Tc-Esports
-Tale Enders Official Website
+TriggerCraft Esports Official Website

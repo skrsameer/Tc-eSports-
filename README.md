@@ -1,2 +1,2 @@
-# Tale-Enders
+# Tc-Esports
 Tale Enders Official Website

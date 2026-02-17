@@ -127,10 +127,10 @@
             <h3 class="gold-text" style="font-size: 1rem; letter-spacing: 5px; margin-bottom: 20px;">ESPORTS</h3>
             <p style="font-size: 1.2rem; margin-bottom: 10px; color: #555;">Ƭcㅤᥱꕶꮲꭷꮢꭲꮪㅤ모</p>
             <p style="font-size: 0.9rem; color: #666; margin-bottom: 30px;">
-                Premier Free Fire Organization.<br>
-                <span class="red-text">Founded by Sameer</span>
+                Premier Free Fire eSports Organization.<br>
+                <span class="red-text">Founded by SKR Sameer</span>
             </p>
-            <button onclick="navTo('selection-section')" class="btn-main">ENTER PORTAL</button>
+            <button onclick="navTo('selection-section')" class="btn-main">Continue</button>
         </div>
     </section>
 
@@ -138,7 +138,7 @@
         <button onclick="navTo('welcome-section')" class="back-btn">❮ Back</button>
         <h2 class="red-text">CHOOSE PATH</h2>
         <div class="glass-panel" style="margin-top: 20px;">
-            <div class="role-card" onclick="selectPath('eSports Athlete')" style="margin-bottom: 15px; padding: 25px;">
+            <div class="role-card" onclick="selectPath('Tc eSports Team')" style="margin-bottom: 15px; padding: 25px;">
                 <h1 style="font-size: 2.5rem;">🏆</h1>
                 <h3 style="color: #333;">JOIN ESPORTS TEAM</h3>
                 <p style="font-size: 0.8rem; color:#666">Competitive & Tournaments</p>
@@ -186,12 +186,18 @@
                 </div>
 
                 <div style="display: flex; gap: 10px;">
-                    <div class="input-group"><label>IGN</label><input type="text" id="ign" required></div>
-                    <div class="input-group"><label>UID</label><input type="number" id="uid" required></div>
+                    <div class="input-group"><label>IGN</label><input type="text" id
+                      ="ign" placeholder="In game name"
+                      ="ign" required></div>
+                    <div class="input-group"><label>UID</label><input type="number"
+                    ="uid" placeholder="Enter game UID"
+                    id="uid" required></div>
                 </div>
 
                 <div style="display: flex; gap: 10px;">
-                    <div class="input-group"><label>Level</label><input type="number" id="level" required></div>
+                    <div class="input-group"><label>Level</label><input type="number"
+                    ="level" placeholder="Enter level 50+"
+                    id="level" required></div>
                     <div class="input-group"><label>Gender</label>
                         <select id="sex"><option>Male</option><option>Female</option></select>
                     </div>
@@ -199,7 +205,7 @@
 
                 <div class="input-group">
                     <label>Date of Birth</label>
-                    <input type="date" id="dob" required>
+                    <input type="date" id="dob" placeholder="Select DOB"="dob" required>
                 </div>
 
                 <div class="input-group">
@@ -211,18 +217,18 @@
                     <label>State</label>
                     <select id="state" required>
                         <option value="Delhi">Delhi</option>
-                        <option value="Maharashtra">Maharashtra</option>
-                        <option value="UP">Uttar Pradesh</option>
                         <option value="Bihar">Bihar</option>
-                        <option value="MP">Madhya Pradesh</option>
-                        <option value="West Bengal">West Bengal</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="U.P">Uttar Pradesh</option>
                         <option value="Other">Other</option>
                     </select>
                 </div>
 
                 <div id="fields-esports" class="hidden">
                     <div class="input-group">
-                        <label>Experience</label>
+                        <label>Esp Exp</label>
                         <select id="exp">
                             <option>6 Months</option>
                             <option>1 Year</option>
@@ -230,27 +236,27 @@
                             <option>3+ Years</option>
                         </select>
                     </div>
-                    <div class="input-group"><label>Parallel Play?</label><select id="parallel"><option>No</option><option>Yes</option></select></div>
+                    <div class="input-group"><label>Parallel Use ?</label><select id="parallel"><option>No</option><option>Yes</option></select></div>
                 </div>
 
                 <div id="fields-guild" class="hidden" style="background: #fffcf0; padding:10px; border-radius:10px; border: 1px solid var(--gold); margin-bottom:10px;">
                     <div class="input-group"><label>Weekly Active Days</label>
                         <select id="active_days">
-                            <option>Daily</option><option>Weekends Only</option><option>3-4 Days</option>
+                            <option>Daily</option><option>1-2 Days</option><option>3-4 Days</option>
                         </select>
                     </div>
-                    <div class="input-group"><label>Glory Target (Daily)</label><input type="number" id="glory" placeholder="e.g. 1000"></div>
+                    <div class="input-group"><label>Glory Target (Weekly)</label><input type="number" id="glory" placeholder="2000-100000"></div>
                 </div>
 
                 <div class="input-group"><label>Playing Time</label>
                     <select id="time">
-                        <option>Evening</option><option>Night</option><option>Always Active</option>
+                        <option>Morning</option><option>Evening</option><option>Night</option><option>Daily 4 h+</option><option>Daily 6 h+</option><option>Always Active</option>
                     </select>
                 </div>
 
                 <div style="display:grid; grid-template-columns: 1fr 1fr; gap:5px; margin-bottom:10px;">
                     <div class="input-group"><label>Family Issues</label><select id="family"><option>No</option><option>Yes</option></select></div>
-                    <div class="input-group"><label>Network Issues</label><select id="network"><option>No</option><option>Yes</option></select></div>
+                    <div class="input-group"><label>Mic ON/OF</label><select id="mic"><option>ON</option><option>OF</option></select></div>
                 </div>
 
                 <div class="input-group">
@@ -258,7 +264,7 @@
                     <input type="text" id="social" placeholder="@username" required>
                 </div>
 
-                <button type="submit" class="btn-main">GENERATE ID CARD</button>
+                <button type="submit" class="btn-main">Submit</button>
             </form>
         </div>
     </section>
@@ -274,7 +280,7 @@
             
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px;">
                 <button onclick="downloadCert()" class="btn-option btn-download">⬇ DOWNLOAD HD</button>
-                <button onclick="applyWhatsApp()" class="btn-option btn-whatsapp">✅ APPLY ON WHATSAPP</button>
+                <button onclick="applyWhatsApp()" class="btn-option btn-whatsapp">✅ APPLY for Tc eSports</button>
             </div>
         </div>
     </section>
@@ -397,8 +403,8 @@
                 drawTxt("SOCIAL ID: " + social, W*0.35, H*0.44, W*0.035, colRed);
 
                 // Grid Details
-                const startY = H * 0.52;
-                const stepY = H * 0.035;
+                const startY = H * 0.50;
+                const stepY = H * 0.029;
                 const leftX = W * 0.30;
                 const rightX = W * 0.70;
                 const labelSize = W * 0.030;
@@ -423,36 +429,60 @@
                 drawRow("STATE", document.getElementById('state').value, rightX, startY);
                 
                 // Conditional Data based on selection
-                if(appData.type === 'eSports Athlete') {
-                    drawRow("EXP", document.getElementById('exp').value, rightX, startY + stepY);
+                if(appData.type === 'Tc eSports Team') {
+                    drawRow("ESP EXP", document.getElementById('exp').value, rightX, startY + stepY);
                     drawRow("PARALLEL", document.getElementById('parallel').value, rightX, startY + stepY*2);
                 } else {
                     drawRow("ACTIVE", document.getElementById('active_days').value, rightX, startY + stepY);
                     drawRow("GLORY", document.getElementById('glory').value, rightX, startY + stepY*2);
                 }
 
-                drawRow("FAMILY", document.getElementById('family').value, rightX, startY + stepY*3);
-                drawRow("NETWORK", document.getElementById('network').value, rightX, startY + stepY*4);
+                drawRow("F Issue", document.getElementById('family').value, rightX, startY + stepY*3);
+                drawRow("MIC", document.getElementById('mic').value, rightX, startY + stepY*4);
                 drawRow("TIME", document.getElementById('time').value, rightX, startY + stepY*5);
 
                 // Date
                 drawTxt("Date: " + new Date().toLocaleDateString(), W*0.15, H*0.68, W*0.03, colBlack);
 
                 // Photo Drawing
-                if(appData.photoURL) {
-                    const img = new Image();
-                    img.src = appData.photoURL;
-                    img.onload = function() {
-                        const px = W * 0.10;
-                        const py = H * 0.28;
-                        const pw = W * 0.18;
-                        const ph = pw * 1.25;
-                        ctx.drawImage(img, px, py, pw, ph);
-                        ctx.strokeStyle = '#d4af37';
-                        ctx.lineWidth = 5;
-                        ctx.strokeRect(px, py, pw, ph);
-                    }
-                }
+                if (appData.photoURL) {
+    const img = new Image();
+    img.src = appData.photoURL;
+    img.onload = function() {
+        
+        const px = W * 0.10;
+        const py = H * 0.28;
+        const pw = W * 0.19;
+        const ph = pw * 1.25;
+        const radius = 30; // 👈 10px radius
+        
+        ctx.save();
+        
+        // Rounded Rectangle Path
+        ctx.beginPath();
+        ctx.moveTo(px + radius, py);
+        ctx.lineTo(px + pw - radius, py);
+        ctx.quadraticCurveTo(px + pw, py, px + pw, py + radius);
+        ctx.lineTo(px + pw, py + ph - radius);
+        ctx.quadraticCurveTo(px + pw, py + ph, px + pw - radius, py + ph);
+        ctx.lineTo(px + radius, py + ph);
+        ctx.quadraticCurveTo(px, py + ph, px, py + ph - radius);
+        ctx.lineTo(px, py + radius);
+        ctx.quadraticCurveTo(px, py, px + radius, py);
+        ctx.closePath();
+        
+        ctx.clip(); // 👈 Important for rounded image
+        
+        ctx.drawImage(img, px, py, pw, ph);
+        
+        ctx.restore();
+        
+        // Border (optional)
+        ctx.strokeStyle = '#000000';
+        ctx.lineWidth = 15;
+        ctx.stroke();
+    }
+}
                 
                 navTo('cert-section');
             };
@@ -479,7 +509,7 @@
             if(appData.type === 'Guild Member') {
                 details = `Glory: ${document.getElementById('glory').value}%0aActive: ${document.getElementById('active_days').value}`;
             } else {
-                details = `Exp: ${document.getElementById('exp').value}%0aRole: ${appData.role}`;
+                details = ` Esp Exp: ${document.getElementById('exp').value}%0aRole: ${appData.role}`;
             }
 
             const msg = `*NEW APPLICATION: TriggerCraft*%0a`

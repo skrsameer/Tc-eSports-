@@ -95,16 +95,28 @@
         .map-item:hover { border-color: var(--accent); transform: translateY(-3px); }
         .map-thumb { width: 90px; height: 60px; border-radius: 8px; object-fit: cover; margin-right: 15px; }
         
-        /* Team Grid */
+        /* Team & Guild Grid */
+        .team-grid { display: flex; flex-direction: column; gap: 15px; }
         .member-card {
             display: flex; background: white; padding: 15px; border-radius: 15px;
-            box-shadow: var(--shadow); align-items: center; border-left: 4px solid var(--primary); margin-bottom: 15px;
+            box-shadow: var(--shadow); align-items: center; border-left: 4px solid var(--primary);
         }
         .member-pic { width: 70px; height: 70px; border-radius: 50%; border: 3px solid var(--accent); margin-right: 15px; object-fit: cover; }
+        .member-info { flex: 1; }
+        .member-info h3 { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; color: #222; margin-bottom: 2px; }
+        .member-info p { font-size: 0.8rem; color: #666; margin: 1px 0; }
         
-        /* Guild Data */
-        .status-card { background: white; padding: 25px; border-radius: 20px; box-shadow: var(--shadow); text-align: center; margin-top: 20px; }
-        .verified-badge { background: #e6fffa; color: #00b894; padding: 5px 15px; border-radius: 20px; font-weight: bold; display: inline-block; margin-top: 10px; }
+        /* New VIP View Certificate Button */
+        .view-cert-btn {
+            background: linear-gradient(135deg, var(--accent), #b8860b);
+            color: white; border: none; padding: 8px 12px; border-radius: 8px;
+            font-size: 0.75rem; font-weight: bold; cursor: pointer;
+            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3); transition: 0.3s;
+            text-transform: uppercase; font-family: 'Poppins', sans-serif;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+        .view-cert-btn i { font-size: 1.2rem; margin-bottom: 2px; }
+        .view-cert-btn:hover { transform: scale(1.05); }
 
         /* Bottom Nav */
         .bottom-nav {
@@ -121,7 +133,7 @@
         .nav-item.active { color: var(--primary); }
         .nav-item.active i { transform: translateY(-5px); }
 
-        /* --- 3. MAP OVERLAY & TOOLS (THE IMPORTANT PART) --- */
+        /* --- 3. MAP OVERLAY & TOOLS --- */
         #map-overlay {
             position: fixed; inset: 0; background: #fff; z-index: 6000; display: none; flex-direction: column;
         }
@@ -134,10 +146,10 @@
             width: 100%; overflow-x: auto; background: white; padding: 10px;
             border-bottom: 1px solid #eee; z-index: 19; white-space: nowrap;
         }
-        .map-tools { display: inline-flex; gap: 8px; padding-bottom: 5px; }
+        .map-tools { display: inline-flex; align-items: center; gap: 8px; padding-bottom: 5px; }
         
         .tool-btn {
-            width: 48px; height: 48px; border-radius: 12px; border: none; background: #f4f4f4;
+            width: 45px; height: 45px; border-radius: 12px; border: none; background: #f4f4f4;
             flex-shrink: 0; cursor: pointer; color: #555; font-size: 1.2rem; display: inline-flex; align-items: center; justify-content: center;
             transition: 0.2s;
         }
@@ -145,8 +157,15 @@
         
         #mapCanvas { flex: 1; width: 100%; background: #222; touch-action: none; cursor: crosshair; }
         
-        .color-input { width: 40px; height: 40px; border: none; border-radius: 50%; overflow: hidden; padding: 0; margin-left: 5px; }
+        .color-input { width: 40px; height: 40px; border: none; border-radius: 50%; overflow: hidden; padding: 0; margin-left: 5px; cursor: pointer; }
         
+        /* NEW SIZE TOOL SLIDER */
+        .size-tool-wrapper {
+            display: flex; align-items: center; background: #f4f4f4; padding: 5px 10px; border-radius: 12px; margin-left: 5px;
+        }
+        .size-tool-wrapper i { font-size: 0.9rem; color: #555; margin-right: 8px; }
+        #toolSize { width: 60px; accent-color: var(--primary); }
+
         /* Zoom Controls */
         .zoom-ui {
             position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
@@ -212,7 +231,7 @@
                     <img src="kassie.png" class="role-img" alt="Supporter" onerror="this.src='https://via.placeholder.com/150/d4af37/FFFFFF?text=SUPPORTER'">
                     <div class="role-title">SUPPORTER</div>
                 </a>
-                <a href="tr" class="role-card">
+                <a href="training_bomber.html" class="role-card">
                     <img src="girl.png" class="role-img" alt="Bomber" onerror="this.src='https://via.placeholder.com/150/222222/FFFFFF?text=BOMBER'">
                     <div class="role-title">BOMBER</div>
                 </a>
@@ -271,49 +290,52 @@
                     <img src="oscar.png" class="member-pic" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png'">
                     <div class="member-info">
                         <h3>SAMEER <span style="font-size:0.7rem; color:var(--accent);">(OWNER)</span></h3>
-                        <p style="font-size:0.8rem; color:#666;">IGN: ƬcㅤMᴀғɪᴀㅤ모</p>
-                        <p style="font-size:0.8rem; color:#888;">UID: 3006954992</p>
-                        <a href="https://instagram.com/trigger_craft_x" style="color:#E1306C; font-size:1.2rem; margin-top:5px; display:inline-block;"><i class="fab fa-instagram"></i></a>
+                        <p>IGN: ƬcㅤMᴀғɪᴀㅤ모</p>
+                        <p>UID: 3006954992</p>
                     </div>
                 </div>
                  <div class="member-card">
                     <img src="Sniper.png" class="member-pic" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3135/3135768.png'">
                     <div class="member-info">
                         <h3>DHANRAJ <span style="font-size:0.7rem; color:var(--primary);">(IGL)</span></h3>
-                        <p style="font-size:0.8rem; color:#666;">IGN: ✨Zxpelap?Xㅤ@</p>
-                        <p style="font-size:0.8rem; color:#888;">UID: 2033046757</p>
+                        <p>IGN: ✨Zxpelap?Xㅤ@</p>
+                        <p>UID: 2033046757</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <div id="tab-guild" class="main-content hidden">
-            <div class="role-section-title">GUILD STATUS</div>
-            <div class="guild-container">
-                <div id="data-not-found" class="status-card no-data">
-                    <i class="fas fa-id-card" style="font-size: 4rem; margin-bottom: 20px; color: #eee;"></i>
-                    <h3>No Data Found</h3>
-                    <p style="margin-bottom:20px; color:#888;">You haven't joined yet.</p>
-                    <button onclick="window.location.href='Join.html'" class="btn-large" style="width: auto; padding: 10px 30px; font-size: 0.9rem;">JOIN NOW</button>
-                </div>
-                <div id="data-found" class="status-card hidden" style="border-top: 5px solid var(--accent);">
-                    <img src="logo.png" style="width: 80px; margin-bottom: 10px;" onerror="this.style.display='none'">
-                    <h2 class="gold-text">MEMBER CARD</h2>
-                    <div class="verified-badge">VERIFIED"" ✅</div>
-                    <div style="margin-top: 25px; text-align: left;">
-                        <p><strong>NAME:</strong> <span id="u-name" style="float: right;">-</span></p>
-                        <hr style="border:0; border-top:1px solid #f0f0f0; margin: 10px 0;">
-                        <p><strong>ROLE:</strong> <span id="u-role" style="float: right; color: var(--primary); font-weight: bold;">-</span></p>
-                        <hr style="border:0; border-top:1px solid #f0f0f0; margin: 10px 0;">
-                        <p><strong>IGN:</strong> <span id="u-ign" style="float: right;">-</span></p>
-                        <hr style="border:0; border-top:1px solid #f0f0f0; margin: 10px 0;">
-                        <p><strong>UID:</strong> <span id="u-uid" style="float: right;">-</span></p>
+            <div class="role-section-title">GUILD MEMBERS</div>
+            <div class="team-grid">
+                
+                <div class="member-card">
+                    <img src="oscar.png" class="member-pic" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png'">
+                    <div class="member-info">
+                        <h3>SAMEER</h3>
+                        <p>IGN: ƬcㅤMᴀғɪᴀㅤ모</p>
+                        <p>UID: 3006954992</p>
                     </div>
-                    <button onclick="window.location.href='certificate.html'" class="btn-secondary" style="width: 100%; border-radius: 12px; margin-top: 25px; padding: 12px; border:none; font-weight:bold; color:black; cursor:pointer;">
-                        VIEW CERTIFICATE
+                    <button class="view-cert-btn" onclick="window.location.href='certificate.html'">
+                        <i class="fas fa-id-badge"></i>
+                        <span>VIEW</span>
                     </button>
                 </div>
-            </div>
+                
+                <div class="member-card">
+                    <img src="Sniper.png" class="member-pic" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3135/3135768.png'">
+                    <div class="member-info">
+                        <h3>DHANRAJ</h3>
+                        <p>IGN: ✨Zxpelap?Xㅤ@</p>
+                        <p>UID: 2033046757</p>
+                    </div>
+                    <button class="view-cert-btn" onclick="window.location.href='certificate.html'">
+                        <i class="fas fa-id-badge"></i>
+                        <span>VIEW</span>
+                    </button>
+                </div>
+
+                </div>
         </div>
 
         <div class="bottom-nav">
@@ -342,7 +364,13 @@
                 <button class="tool-btn" id="btn-eraser" onclick="setTool('eraser')"><i class="fas fa-eraser"></i></button>
                 <button class="tool-btn" onclick="undo()" title="Undo"><i class="fas fa-undo" style="color:var(--primary);"></i></button>
                 <button class="tool-btn" onclick="clearMap()" style="color:red;"><i class="fas fa-trash"></i></button>
+                
                 <input type="color" id="toolColor" value="#ff0000" class="color-input">
+                
+                <div class="size-tool-wrapper">
+                    <i class="fas fa-paint-brush"></i>
+                    <input type="range" id="toolSize" min="1" max="15" value="3" title="Tool Size">
+                </div>
             </div>
         </div>
 
@@ -365,7 +393,6 @@
             if(pin === 'Tc786') {
                 document.getElementById('lock-screen').style.display = 'none';
                 document.getElementById('app-container').style.display = 'flex';
-                loadGuildData();
             } else {
                 alert('Wrong PIN!');
                 document.getElementById('pinInput').value = '';
@@ -380,26 +407,13 @@
             el.classList.add('active');
         }
 
-        function loadGuildData() {
-            const rawData = localStorage.getItem('tc_player_data');
-            const role = localStorage.getItem('tc_role');
-            if(rawData) {
-                const data = JSON.parse(rawData);
-                document.getElementById('data-not-found').classList.add('hidden');
-                document.getElementById('data-found').classList.remove('hidden');
-                document.getElementById('u-name').innerText = data.name;
-                document.getElementById('u-role').innerText = role || 'Member';
-                document.getElementById('u-ign').innerText = data.ign;
-                document.getElementById('u-uid').innerText = data.uid;
-            }
-        }
-
-        // --- 3. ADVANCED MAP LOGIC (RESTORED FROM YOUR SCRIPT) ---
+        // --- 3. ADVANCED MAP LOGIC (FIXED CIRCLE & DOT + SIZE) ---
         let canvas, ctx, mapImg;
         let isDrawing = false;
         let tool = 'pan';
         let history = []; 
-        let routePoints = []; // For Route Tool
+        let routePoints = []; 
+        let tempImg = new Image(); // For live circle preview
         
         // Transform State
         let scale = 1, panX = 0, panY = 0;
@@ -417,7 +431,6 @@
             mapImg = new Image();
             mapImg.src = src;
             mapImg.onload = () => {
-                // Fit image initially
                 const sX = canvas.width / mapImg.width;
                 const sY = canvas.height / mapImg.height;
                 scale = Math.min(sX, sY);
@@ -427,7 +440,7 @@
                 draw();
             }
 
-            // Bind Events
+            // Bind Events (Desktop & Mobile)
             canvas.addEventListener('mousedown', pointerDown);
             canvas.addEventListener('mousemove', pointerMove);
             canvas.addEventListener('mouseup', pointerUp);
@@ -437,9 +450,7 @@
             
             // Zoom Slider
             document.getElementById('zoomRange').addEventListener('input', function(e) {
-                // Simple zoom logic based on center
                 let newScale = parseFloat(this.value);
-                // Adjust scale relative to initial fit
                 let baseScale = Math.min(canvas.width / mapImg.width, canvas.height / mapImg.height);
                 scale = baseScale * newScale;
                 draw();
@@ -450,9 +461,7 @@
         
         function setTool(t) {
             tool = t;
-            // Reset route if switching tool
             if(tool !== 'route') routePoints = [];
-            
             document.querySelectorAll('.tool-btn').forEach(b => b.classList.remove('active'));
             document.getElementById('btn-'+t).classList.add('active');
         }
@@ -483,12 +492,10 @@
         }
 
         function draw() {
-            // Clear and draw BG
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.drawImage(mapImg, panX, panY, mapImg.width * scale, mapImg.height * scale);
         }
 
-        // Pointer Logic
         function getPos(e) {
             let cx, cy;
             if(e.touches && e.touches.length > 0) {
@@ -496,65 +503,68 @@
             } else {
                 cx = e.clientX; cy = e.clientY;
             }
-            // Adjust for header height (~110px total with tools)
             const rect = canvas.getBoundingClientRect();
             return {x: cx - rect.left, y: cy - rect.top};
         }
 
         function pointerDown(e) {
             const pos = getPos(e);
+            let size = parseInt(document.getElementById('toolSize').value); // Get Size
+            let color = document.getElementById('toolColor').value;
             
             if(tool === 'pan') {
                 isDrawing = true;
                 startX = pos.x - panX;
                 startY = pos.y - panY;
             } 
+            else if(tool === 'dot') {
+                // DOT FIX: Draw immediately on click
+                saveState();
+                ctx.beginPath();
+                ctx.arc(pos.x, pos.y, size * 2, 0, Math.PI*2);
+                ctx.fillStyle = color;
+                ctx.fill();
+                ctx.strokeStyle = "white"; ctx.lineWidth = 2; ctx.stroke();
+            }
             else if(tool === 'route') {
-                // Special Route Logic (Click to add points)
                 saveState();
                 if(routePoints.length === 0) {
                     routePoints.push(pos);
-                    // Draw start dot
-                    ctx.beginPath(); ctx.arc(pos.x, pos.y, 4, 0, Math.PI*2); ctx.fillStyle=document.getElementById('toolColor').value; ctx.fill();
+                    ctx.beginPath(); ctx.arc(pos.x, pos.y, size+2, 0, Math.PI*2); ctx.fillStyle=color; ctx.fill();
                 } else {
                     let last = routePoints[routePoints.length-1];
                     ctx.beginPath();
                     ctx.moveTo(last.x, last.y);
                     ctx.lineTo(pos.x, pos.y);
-                    ctx.strokeStyle = document.getElementById('toolColor').value;
-                    ctx.lineWidth = 3;
-                    ctx.setLineDash([10, 5]); // Dashed Line
+                    ctx.strokeStyle = color;
+                    ctx.lineWidth = size;
+                    ctx.setLineDash([10, 5]); 
                     ctx.stroke();
-                    ctx.setLineDash([]); // Reset
+                    ctx.setLineDash([]); 
                     
-                    // Draw connection dot
-                    ctx.beginPath(); ctx.arc(pos.x, pos.y, 4, 0, Math.PI*2); ctx.fillStyle=document.getElementById('toolColor').value; ctx.fill();
+                    ctx.beginPath(); ctx.arc(pos.x, pos.y, size+2, 0, Math.PI*2); ctx.fillStyle=color; ctx.fill();
                     routePoints.push(pos);
                 }
             }
-            else if(tool === 'dot') {
-                saveState();
-                ctx.beginPath();
-                ctx.arc(pos.x, pos.y, 6, 0, Math.PI*2);
-                ctx.fillStyle = document.getElementById('toolColor').value;
-                ctx.fill();
-                // Add icon look
-                ctx.strokeStyle = "white"; ctx.lineWidth = 2; ctx.stroke();
-            }
             else {
-                // Draw / Eraser / Circle
+                // Draw, Line, Circle, Eraser
                 saveState();
                 isDrawing = true;
-                ctx.beginPath();
                 startX = pos.x; startY = pos.y;
                 
+                // Save temp image for live circle preview
+                if(tool === 'circle') {
+                    tempImg.src = canvas.toDataURL(); 
+                }
+                
+                ctx.beginPath();
                 if(tool === 'eraser') {
                     ctx.globalCompositeOperation = 'destination-out';
-                    ctx.lineWidth = 20;
+                    ctx.lineWidth = size * 5; // Eraser thoda bada hota hai
                 } else {
                     ctx.globalCompositeOperation = 'source-over';
-                    ctx.strokeStyle = document.getElementById('toolColor').value;
-                    ctx.lineWidth = 3;
+                    ctx.strokeStyle = color;
+                    ctx.lineWidth = size; // Apply selected size
                 }
                 ctx.moveTo(pos.x, pos.y);
             }
@@ -562,14 +572,29 @@
 
         function pointerMove(e) {
             if(!isDrawing) return;
-            e.preventDefault(); // Prevent scrolling
+            e.preventDefault(); 
             const pos = getPos(e);
+            let size = parseInt(document.getElementById('toolSize').value);
+            let color = document.getElementById('toolColor').value;
 
             if(tool === 'pan') {
                 panX = pos.x - startX;
                 panY = pos.y - startY;
                 draw();
-            } else if (tool === 'draw' || tool === 'eraser') {
+            } 
+            else if (tool === 'circle') {
+                // CIRCLE FIX: Live preview
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(tempImg, 0, 0); // Restore background
+                
+                ctx.beginPath();
+                let r = Math.sqrt(Math.pow(pos.x - startX, 2) + Math.pow(pos.y - startY, 2));
+                ctx.arc(startX, startY, r, 0, 2*Math.PI);
+                ctx.strokeStyle = color;
+                ctx.lineWidth = size;
+                ctx.stroke();
+            }
+            else if (tool === 'draw' || tool === 'eraser') {
                 ctx.lineTo(pos.x, pos.y);
                 ctx.stroke();
             }
@@ -580,11 +605,7 @@
             isDrawing = false;
             
             if(tool === 'circle') {
-                // Draw circle on mouse up
-                const pos = getPos(e); // Need valid pos, might need last known pos
-                // Simple approximation if pos available
-                // For simplicity in single file, we skip dynamic preview of circle, just draw on release
-                // or user can just use 'Draw' tool for rough circles
+                // Circle is already drawn in pointerMove, just stop drawing
             }
             ctx.globalCompositeOperation = 'source-over'; // Reset
         }
